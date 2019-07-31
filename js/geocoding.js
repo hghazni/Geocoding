@@ -1,16 +1,19 @@
-var x = document.getElementById("geocoding");
+var geoCodeEle = document.getElementById("geocoding");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, ShowError);
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    geoCodeEle.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+  var latLong = position.coords.latitude + "," + position.coords.longitude;
+
+  var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latLong+"&zoom=14&size=400x300&sensor=true&key=AIzaSyCeRtn5IltX9FM4TCuJgVO362zDZC8smvs";
+
+  document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 
 function showError(error) {
