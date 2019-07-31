@@ -1,7 +1,35 @@
 html, body {
     background-color: black;
+    color: #fff;
+    text-align: center;
 }
 
+h1 {
+    font-size: 60px;
+}
+
+button {
+    border: 1px solid transparent;
+    background-color: brown;
+    padding: 20px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(83, 21, 21);
+}
+
+button:focus {
+    position: relative;
+    top: 10px;
+}
+
+#mapholder {
+    margin: 40px;
+}
+
+a,
 #geocoding {
     color: #fff;
 }
